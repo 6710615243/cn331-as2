@@ -80,16 +80,19 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 if not os.environ.get('DEBUG', 'False') == 'True':
     DATABASES = {
-        'default' : dj_database_url.config(default='sqlite:///db.sqlite3',  
+        dj_database_url.parse(
+            os.environ.get('DATABASE_URL', ''),  # ถ้า DATABASE_URL ยังไม่ตั้ง จะเป็น empty string
             conn_max_age=600,
             ssl_require=True
         )
     }
+    if not DATABASES['default']['ENGINE']:
+        raise Exception("DATABASE_URL environment variable not set for production!")
 else :   
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-             'NAME': os.path.join(os.path.dirname(__file__), 'db.sqlite3'),
+             'NAME': BASE_DIR / 'db.sqlite3',
         }
 }
 

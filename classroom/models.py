@@ -6,7 +6,7 @@ class RoomData(models.Model):
     room_code = models.CharField(max_length=6)
     room_name = models.CharField(max_length=10)
     room_capacity = models.IntegerField()
-    room_hour = models.IntegerField()
+    room_hour = models.IntegerField(default=2)
     room_available = models.BooleanField(default=True)
 
     #String repretentation of the tour

@@ -10,20 +10,20 @@ def login_user(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         
-        # ตรวจสอบ user ในฐานข้อมูล
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            messages.success(request, "เข้าสู่ระบบสำเร็จ", extra_tags="login")
-            return redirect('index')  # หรือหน้า dashboard ของคุณ
+            messages.success(request, "You have logged in successfully.", extra_tags="login")
+            return redirect('index') 
         else:
-            messages.error(request, "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง",  extra_tags="login")
+            messages.error(request, "Invalid username or password.",  extra_tags="login")
+            return render(request, 'rooms/login.html')
     
     return render(request, 'rooms/login.html')
 
 def logout_user(request):
     logout(request)
-    messages.success(request, "ออกจากระบบเรียบร้อย")
+    messages.success(request, "You have been logged out successfully.")
     return redirect('index')
 
 def index(request):

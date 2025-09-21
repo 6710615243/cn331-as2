@@ -78,24 +78,14 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-if not os.environ.get('DEBUG', 'False') == 'True':
-    DATABASES = {
-        dj_database_url.parse(
-            os.environ.get('DATABASE_URL', ''),  # ถ้า DATABASE_URL ยังไม่ตั้ง จะเป็น empty string
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
-    if not DATABASES['default']['ENGINE']:
-        raise Exception("DATABASE_URL environment variable not set for production!")
-else :   
-    DATABASES = {
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
              'NAME': BASE_DIR / 'db.sqlite3',
         }
-}
+    }
 
+DATABASES['default'] = dj_database_url.parse("postgresql://room_booking_ko6k_user:NkoH7nGsWJfh1H4nEZUCWs2aGJnDynlR@dpg-d37e5lruibrs73902jmg-a.oregon-postgres.render.com/room_booking_ko6k")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

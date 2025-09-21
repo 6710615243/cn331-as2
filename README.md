@@ -1,5 +1,5 @@
 # cn331-as2
-// Napattira Loaklemhung 6710615243
+// Napattira Loaklemhung 6710545010
 // Lalita Thatsananunchai 6710615243
 
 รายละเอียดของระบบ 

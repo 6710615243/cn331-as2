@@ -47,7 +47,7 @@ def reserve_room(request, room_id):
     
     if not request.user.is_authenticated:
         messages.error(request, "You must be logged in to reserve a room.")
-        return redirect("login")
+        return redirect("login_user")
 
     # Handle a POST request (form submission)
     if request.method == "POST":
@@ -79,6 +79,7 @@ def reserve_room(request, room_id):
         context = {'room': room}
         return render(request, 'rooms/reserve.html', context)
 
+@login_required(login_url='login_user')
 def cancel_reservation(request):
     reservation = Reservation.objects.filter(user=request.user).first()
     if reservation:

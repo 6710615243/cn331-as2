@@ -22,6 +22,7 @@ jobs:
           pip install coverage
           pip install psycopg2-binary
           pip install dj-database-url
+          pip install whitenoise
           
       - name: Run Django unit tests with coverage
         run: |

@@ -2,17 +2,17 @@
 // Napattira Loaklemhung 6710545010
 // Lalita Thatsananunchai 6710615243
 
-รายละเอียดของระบบ 
-ระบบพวกหนูจะทำการจองห้องเรียน มีการ login แยกฝั่งรหว่าง user กับ admin
-user 1 คน สามารถจองได้เพียงหนึ่งชม. หากจะจองห้องอื่นแทรต้องทำการ cancle ก่อนถึงจะจองได้ 
-และในการจองแต่ละครั้ง user จะเห็นรายละเอียดของห้องที่ตัวเองจอง และกดยืนยันการจองจะถือเป็นอันเสร็จสิ้น
+websites: https://room-booking-system-qnxx.onrender.com
 
-ส่วนทางฝั่ง admin จะสามารถดูรายละเอียดของห้องเรียน ราบละเอียด user ได้
-โดยภาษาหลักที่พวกหนูใช้จะเป็น python ใช้พัฒนาเว็บในฝั่ง backend ใส่ส่วนของ html เป็นโครงสร้างในส่วนของเว็บและเนื้อหาต่างๆ  และ css จะทำการตกแต่งหน้าเว็บ
+video: 
+
+https://github.com/user-attachments/assets/76f311aa-7d41-4a73-8c39-4d7a8702d8c5
+
+
 
 admin
-username: admin
-password: 123456
+username: adminn
+password: 1234
 
 user1:
 username: ln
@@ -26,7 +26,15 @@ user3:
 username: yu
 password: fdsazxcv3
 
-https://github.com/user-attachments/assets/d79eaa47-2f16-4953-a00a-e4791b8e6662
+user4:
+username: min
+password: fdsazxcv4
+
+user5:
+username: lin
+password: fdsazxcv5
+
+
 
 
 

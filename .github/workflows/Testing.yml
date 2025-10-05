@@ -20,10 +20,7 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install coverage
-          
-      - name: Set Django settings module
-        run: |
-          echo "DJANGO_SETTINGS_MODULE=myproject.settings" >> $GITHUB_ENV
+          pip install psycopg2-binary
           
       - name: Run Django unit tests with coverage
         run: |

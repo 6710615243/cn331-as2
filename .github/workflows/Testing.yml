@@ -18,10 +18,12 @@ jobs:
         run: |
           pip3 install --user -r requirements.txt
           pip3 install --user coverage
-      - name: Run migrations
-        run: |
-          python3 manage.py makemigrations
-          python3 manage.py migrate
+      - name: Set Django settings module
+        run: echo "DJANGO_SETTINGS_MODULE=myproject.settings" >> $GITHUB_ENV
+
+      - name: Collect static files
+        run: python manage.py collectstatic --noinput
+        
       - name: Run Django unit tests with coverage
         run: |
           coverage run --source='.' manage.py test classroom.tests

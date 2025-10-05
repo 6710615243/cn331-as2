@@ -14,7 +14,6 @@ class RoomTestCase(TestCase):
     self.assertEqual(response.status_code, 302)
     self.assertRedirects(response, reverse("index"))
   
-#logout
   def test_login_fail(self):
     response = self.client.post(reverse("login_user"), {"username":"testttt", "password":"12"})
     self.assertEqual(response.status_code, 200)
@@ -37,9 +36,19 @@ class RoomTestCase(TestCase):
     self.assertRedirects(response, reverse("index"))
     self.assertEqual(Reservation.objects.count(), 1)
 
+  def test_reserve_room_notlogin(self):
+    response = self.client.post(reverse("reserve", args=[self.room.id]))
+    self.assertRedirects(response, reverse("login_user"))
+
 #cancel_room
   def test_cancel_reservation_success(self):
     self.client.login(username="tester",password="1234")
+    response = self.client.get(reverse("cancel"))
+    self.assertRedirects(response, reverse("index"))
+    self.assertEqual(Reservation.objects.count(), 0)
+
+  def test_cancal_reservation_witout_existing(self):
+    self.client.login(username="testuser", password="1234")
     response = self.client.get(reverse("cancel"))
     self.assertRedirects(response, reverse("index"))
     self.assertEqual(Reservation.objects.count(), 0)

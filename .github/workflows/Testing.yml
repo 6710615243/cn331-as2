@@ -19,11 +19,6 @@ jobs:
           pip3 install --user -r requirements.txt
           pip3 install --user coverage
 
-      - name: Set environment variables
-        run: |
-          echo "DJANGO_SETTINGS_MODULE=cn331-as2.settings" >> $GITHUB_ENV
-          echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
-
       - name: Run migrations
         run: |
           python3 manage.py makemigrations

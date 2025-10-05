@@ -22,7 +22,7 @@ jobs:
           
       - name: Set Django settings module
         run: |
-          echo "DJANGO_SETTINGS_MODULE=cn331_as2.settings" >> $GITHUB_ENV
+          echo "DJANGO_SETTINGS_MODULE=cn331-as2.settings" >> $GITHUB_ENV
           
       - name: Run Django unit tests with coverage
         run: |

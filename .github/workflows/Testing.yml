@@ -1,3 +1,4 @@
+
 name: Testing
 on: push
 
@@ -16,19 +17,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install coverage
-
-      - name: Set environment variable
-        run: |
-          echo "DJANGO_SETTINGS_MODULE=cn331-as2.settings" >> $GITHUB_ENV
-
+          pip3 install --user -r requirements.txt
+          pip3 install --user coverage
       - name: Run migrations
         run: |
           python3 manage.py makemigrations
           python3 manage.py migrate
-
       - name: Run Django unit tests with coverage
         run: |
           coverage run --source='.' manage.py test classroom.tests

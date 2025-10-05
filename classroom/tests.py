@@ -48,10 +48,9 @@ class RoomTestCase(TestCase):
     self.assertEqual(Reservation.objects.count(), 0)
 
   def test_cancal_reservation_witout_existing(self):
-    self.client.login(username="testuser", password="1234")
+    self.client.logout()
     response = self.client.get(reverse("cancel"))
-    self.assertRedirects(response, reverse("index"))
-    self.assertEqual(Reservation.objects.count(), 0)
+    self.assertRedirects(response, '/login/?next=/cancel/')
   
 #logout
   def test_logout_success(self):

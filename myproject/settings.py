@@ -85,7 +85,7 @@ DATABASES = {
         }
     }
 
-DATABASES['default'] = dj_database_url.parse("postgresql://room_booking_ko6k_user:NkoH7nGsWJfh1H4nEZUCWs2aGJnDynlR@dpg-d37e5lruibrs73902jmg-a.oregon-postgres.render.com/room_booking_ko6k")
+DATABASES['default'] = dj_database_url.parse("postgresql://roombooking_nqt5_user:zd9CQCcmUcYHb7vhFDegKSD7b4aa074I@dpg-d3urn7odl3ps73fbpm3g-a/roombooking_nqt5")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

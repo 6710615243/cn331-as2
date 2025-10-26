@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cancel Reservation</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Room Booking System</h1>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Cancel Reservation</h2>
+            <p>Are you sure you want to cancel your reservation for 
+                <strong>{{ reservation.room.room_name }}</strong>?
+            </p>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Yes, Cancel</button>
+                <a href="{% url 'index' %}" class="btn btn-secondary">Keep Reservation</a>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -83,7 +83,7 @@ DATABASES = {
    
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'roombooking',
+        'NAME': 'roombooking_nqt5',
         'USER': 'roombooking_nqt5_user',
         'PASSWORD': 'zd9CQCcmUcYHb7vhFDegKSD7b4aa074I',
         'HOST': 'dpg-d3urn7odl3ps73fbpm3g-a.oregon-postgres.render.com',

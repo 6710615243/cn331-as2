@@ -78,14 +78,25 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
 DATABASES = {
-         'default': dj_database_url.parse(
-        "postgresql://roombooking_nqt5_user:zd9CQCcmUcYHb7vhFDegKSD7b4aa074I@dpg-d3urn7odl3ps73fbpm3g-a.abcdef.postgres.database.com:5432/roombooking_nqt5",
-        )
-    }
+   
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'roombooking',
+        'USER': 'roombooking_nqt5_user',
+        'PASSWORD': 'zd9CQCcmUcYHb7vhFDegKSD7b4aa074I',
+        'HOST': 'dpg-d3urn7odl3ps73fbpm3g-a.oregon-postgres.render.com',
+        'PORT': '5432',
+    }}
+
+# DATABASES = {
+#         'default': { 'ENGINE': 'django.db.backends.sqlite3', 
+#         'NAME': BASE_DIR / 'db.sqlite3', }
+#     }
     
 
-# DATABASES['default'] = dj_database_url.parse("postgresql://roombooking_nqt5_user:zd9CQCcmUcYHb7vhFDegKSD7b4aa074I@dpg-d3urn7odl3ps73fbpm3g-a/roombooking_nqt5")
+DATABASES['default'] = dj_database_url.parse("postgresql://roombooking_nqt5_user:zd9CQCcmUcYHb7vhFDegKSD7b4aa074I@dpg-d3urn7odl3ps73fbpm3g-a/roombooking_nqt5")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
